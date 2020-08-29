@@ -1,26 +1,51 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { makeStyles } from '@material-ui/core/styles';
+import { Paper,CircularProgress, TextField,Button } from '@material-ui/core';
+import ButtonAppBar from './navBar.js'
+import DatePickers from './dob'
+
+const useStyles = makeStyles((theme) => ({
+  
+  paper: {
+    width: 400,
+    margin: '0 auto',
+    marginTop: 100,
+    textAlign: 'center',
+    
+    padding: 50,
+  },
+  input: {
+    width: '94%',
+    marginBottom: '10px'
+  }
+}));
+
 
 function App() {
+
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.root} >
+      <ButtonAppBar/>
+
+      <Paper elevation={3} className={classes.paper}>
+        <h1>Login</h1>
+        <form className={classes.root} noValidate autoComplete="off">
+          <TextField label="Enter Email" className={classes.input} />
+
+          <TextField label="Enter Password" className={classes.input}/>
+          <DatePickers />
+          <Button variant="contained" color="primary" className={classes.input}>
+            Login
+          </Button>
+
+        </form>
+        <CircularProgress  />
+      </Paper>
+
     </div>
   );
 }
 
 export default App;
+ 
