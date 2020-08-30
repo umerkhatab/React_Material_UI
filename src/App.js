@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Paper,CircularProgress, TextField,Button } from '@material-ui/core';
 import ButtonAppBar from './navBar.js'
 import DatePickers from './dob'
-
+import BarChart from './BarChart';
+import PieChart from './pie'
 const useStyles = makeStyles((theme) => ({
   
   paper: {
@@ -42,6 +43,9 @@ function App() {
         </form>
         <CircularProgress  />
       </Paper>
+
+      <BarChart />
+      <PieChart />
 
     </div>
   );
